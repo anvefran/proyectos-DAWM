@@ -3,25 +3,38 @@
     <head>
         <title>Gen Z Works</title>
         <link rel='stylesheet' href= 'style.css'/>
+        <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
+
     </head>
     <body>
         <header>
             <img src="logo.PNG" alt="Logo Gen Z works">
             <h1>Gen Z Works</h1>
+            <input id="buscador" type="search" name="buscar" placeholder="Nombres, apellidos del usuario">
+            <input type="submit" value="Buscar">
+            <button id="inicio" onclick="location.href='https://aulavirtual.espol.edu.ec/'">Iniciar Sesion</button>
+            <button id="registro" onclick="location.href='https://aulavirtual.espol.edu.ec/'">Registrarse</button>
         </header>
         <nav class="atajos">
             <ul>
                 <li><a href="#datos">Datos personales</a></li>
                 <li><a href="#experiencia">Experiencia</a></li>
-                <li><a href="#contactame">Contactame</a></li>
+                <li><a href="#educacion">Educacion</a></li>
+                <li><a href="#certificaciones">Certificaciones</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#contactame">Contáctame</a></li>
             </ul>
         </nav>
         <section class="banner">
-            <img src="foto.PNG" alt="Foto Andrea Velez"></td>
+            <img src="foto.JPEG" alt="Foto Andrea Velez"></td>
+            <div id="info">
             <h2>Andrea Velez</h2>
-            <label>Ayudante de catedra</label>
-            <label>aqui va el audio</label>
-            <section class="relevante">
+            <label>Ayudante de catedra</label><br>
+            <audio controls="yes">
+                <source src="resumen.mp4" type="audio/mpeg">
+            </audio>
+            </div>
+            <div id="relevante">
                 <label>Relevante:</label>
                 <ul>
                     <li>Estudiante en ESPOL</li>
@@ -29,14 +42,14 @@
                     <li>Guayaquil, Ecuador</li>
                     <li>Java, HTML, Python, C, Assembler, MySQL</li>
                 </ul>
-            </section>
+            </div>
         </section>
         <section class="knowme">
             <h2>GET TO KNOW ME!</h2> <br>
             <p>En la actualidad, me encuentro cursando el sexto semestre de la carrera de Ingeniería en Computación en la Escuela Superior Politécnica del Litoral (ESPOL).</p> <br>
             <p>A causa de mi gran rendimieno académico, he sido seleccionada como ayudante de docencia en una de las materias profesionales. Dentro de mis habilidades destacan la responsabilidad, liderazgo y compromiso.</p>
         </section>
-        <section class="Datos">
+        <section id="datos">
             <h2>Datos personales</h2>
             <ul id="infopersonal">
                 <li>Nombres: Andrea Michelle</li>
@@ -46,20 +59,20 @@
                 <li>Ubicación: Guayaquil, Ecuador</li>
             </ul>
         </section>
-        <section class="contactame">
+        <section id="contactame">
             <h2>Contáctame</h2>
             <ul>
                 <li><img src="Tel.PNG" alt="icon telefono"> +593 969598788</li>
                 <li><img src="correo.PNG" alt="icon correo"> anvefran@espol.edu.ec</li>
-                <li><img src="link.PNG" alt="icon linkedIn"> <a href="https://ec.linkedin.com/">LinkedIn</a></li>
+                <li><img src="in.PNG" alt="icon linkedIn"> <a href="https://ec.linkedin.com/">LinkedIn</a></li>
                 <li><img src="git.PNG" alt="icon Github"> <a href="https://github.com/anvefran">Visita mi Github</a></li>
             </ul>
         </section>
-        <section class="educacion">
+        <section id="educacion">
             <h2>Educación</h2>
             <div id="sdginfo">
                 <p>
-                    <img href="sdg.PNG" alt="logo SDG">
+                    <img src="sdg.jpg" alt="logo SDG">
                     UEPB Santo Domingo de Guzmán<br>
                     Bachiller en Ciencias<br>
                     2008-2020<br>
@@ -68,7 +81,7 @@
             </div>
             <div id="espolinfo">
                 <p>
-                    <img href="espol.PNG" alt="logo ESPOL">
+                    <img src="espol.png" alt="logo ESPOL">
                     Escuela Superior Politécnica del Litoral<br>
                     Ingeniería en Computación<br>
                     2020-Actualidad<br>
@@ -76,11 +89,11 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63792.24264597484!2d-80.03048736875!3d-2.1478802000000035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d72f925e5bfdb%3A0x327cdb9f7f4ba3b2!2sEscuela%20Superior%20Polit%C3%A9cnica%20del%20Litoral%20(ESPOL)!5e0!3m2!1ses!2sec!4v1666020678603!5m2!1ses!2sec" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </section>
-        <section class="experiencia">
+        <section id="experiencia">
             <h2>Experiencia</h2>
             <div id="docencia">
                 <p>
-                    <img href="espol.PNG" alt="Logo ESPOL">
+                    <img src="espol.png" alt="Logo ESPOL">
                     Escuela Superior Politécnica del Litoral <br>
                     Ayudante de docencia - Computación y Sociedad<br>
                     2021-Actualidad<br>
@@ -88,7 +101,7 @@
             </div>
             <div id="gestion">
                 <p>
-                    <img href="espol.PNG" alt="Logo ESPOL">
+                    <img src="espol.png" alt="Logo ESPOL">
                     Escuela Superior Politécnica del Litoral <br>
                     Ayudante de Gestión - Coordinación de carrera<br>
                     Actualidad<br>
@@ -108,7 +121,7 @@
                 +593 958426785 <br>
             </p>
         </section>
-        <section class = "certificaciones">
+        <section id = "certificaciones">
             <h2>Certificaciones</h2>
             <ol>
                 <li>CCNAv7: Introducción a Redes</li>
@@ -142,6 +155,59 @@
         </section>
         <section id="habilidades">
             <h2>Habilidades</h2>
+            <ul>
+                <li>Java</li>
+                <li>Python</li>
+                <li>HTML</li>
+                <li>MySQL</li>
+                <li>C</li>
+                <li>Git</li>
+                <li>GNU/Linux</li>
+                <li>Microsoft PowerPoint</li>
+                <li>Microsoft Excel</li>
+                <li>Microsoft Word</li>
+            </ul>
+        </section>
+        <section id="idiomas">
+            <table>
+                <tr>
+                    <th>Idioma</th>
+                    <th>Hablado</th>
+                    <th>Escrito</th>
+                </tr>
+                <tr>
+                    <td>Ingles</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>Español</td>
+                    <td>100%</td>
+                    <td>100%</td>
+                </tr>
+            </table>
+        </section>
+        <section id="interes">
+            <h2>¿Te interesó mi perfil?</h2>
+            <h3>Llena el siguiente formulario</h3>
+            <form>
+                <label for="nombres">Nombres:</label>
+                <input type="text" id="nombres" name="nombres" required="required"/><br>
+                <label for="institucion">Institucion:</label>
+                <input type="institucion" id="institucion" name="institucion" required="required"/><br>
+                <label for="cargo">Cargo:</label>
+                <input type="text" id="cargo" name="cargo" required="required"/><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required="required"/><br>
+                <label for="comentarios">Mensaje:</label>
+                <textarea id="comentarios" name="comentarios" rows="10" cols="50"></textarea><br>
+                <button type="submit" name="enviar">Enviar</button>
+                <button type="reset" name="reiniciar">Cancelar</button>
+            </form>
+            <div id="quehacer">
+                <h3>¿Qué hacer ahora?</h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/yxL9VbPoi6s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </section>
     </body>
 </html>
