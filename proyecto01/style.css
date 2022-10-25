@@ -1,18 +1,33 @@
 * {
     font-family: 'ABeeZee';
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 h2{
     color: #810556;
 }
 
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8% 10%;
+}
+
+.header .logo img{
+    height: 4rem;
+    width: auto;
+}
+
+/*
 header {
     display: flex;
     column-gap: 0.5rem;
     row-gap: 0.5rem;
     flex-wrap: wrap;
     align-items: center;
-
 }
 
 #buscador{
@@ -27,7 +42,7 @@ header img{
     width: 4%;
     height: 4%;
 }
-
+*/
 
 .atajos ul {
     list-style-type: none;
@@ -62,9 +77,20 @@ header img{
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);;
 }
 
-.banner img{
-    max-width: 10%
+.banner .foto{
+    padding: 0.3% 2% 0.3% 1%;
 }
+
+.banner .foto img{
+    height: 10rem;
+    width: auto;
+    transition: all 1s;
+    cursor: zoom-in;
+}
+.banner .foto img:hover{
+    transform: scale(1.2);
+}
+
 
 #info{
     display: grid;
