@@ -11,6 +11,7 @@ h2{
     
 }
 
+
 .header{
     display: flex;
     flex-wrap: wrap;
@@ -183,6 +184,7 @@ h2{
     justify-content: space-around;
     width: fit-content;
     padding: 1rem;
+    column-gap: 0.5rem;
 }
 
 #infoper li{
@@ -214,4 +216,66 @@ object{
     left: 50%;
     margin-left: -3px;
     top: 0;
+}
+
+.hl{
+    border-bottom: 6px solid #D9D9D9;
+    width: 100%;
+    bottom: 50%;
+    margin-bottom: -3px;
+    top: 0;
+}
+
+.educacion{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
+    justify-content: space-between;
+}
+.educacion h2{
+    text-align: center;
+    padding: 1.5rem;
+}
+#sdginfo{
+    display: flex;
+    column-gap: 0.5rem;
+    padding: 1rem;
+    justify-content: space-evenly;
+}
+#sdgbanner{
+    display: flex;
+    background-color: #D9D9D9;
+    border-radius: 2rem;
+    align-items: center;
+    column-gap: 1rem;
+    padding: 2rem;
+}
+#sdginfo img{
+    height: 5rem;
+    width: auto;
+}
+iframe{
+    height: 10rem;
+    width: auto;
+}
+
+#espolinfo{
+    display: flex;
+    column-gap: 0.5rem;
+    padding: 1rem;
+    justify-content: space-evenly;
+}
+#espolbanner{
+    display: flex;
+    background-color: #D9D9D9;
+    border-radius: 2rem;
+    align-items: center;
+    column-gap: 1rem;
+    padding: 2rem;
+}
+#espolinfo img{
+    height: 5rem;
+    width: auto;
 }
