@@ -7,6 +7,8 @@
 
 h2{
     color: #810556;
+    text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
+    
 }
 
 .header{
@@ -87,7 +89,7 @@ h2{
     justify-content: space-around;
     padding: 1%;
     background-color: #EAD3F5;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .banner .foto{
@@ -147,4 +149,69 @@ h2{
     flex-direction: column;
     justify-content: space-around;
     justify-items: center;
+}
+.knowme{
+    padding: 1.5%;
+}
+.knowme h2{
+    text-align: center;
+    font-style: italic;
+    padding: 0.5%;
+    
+}
+.knowme #parrafo{
+    background-color: #D9D9D9;
+    padding: 2%;
+}
+.knowme p{
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.linea2{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+#datosper{
+    background-color: #D9D9D9;
+    border-radius: 1rem;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-around;
+    width: fit-content;
+    padding: 1rem;
+}
+
+#infoper li{
+    padding: 1%;
+}
+.linea2 h2{
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+.linea2 .datos #datosper ul{
+    list-style-type: none;
+}
+.contactame #redes{
+    display: flex;
+}
+.contactame #redes li{
+    padding: 6%;
+}
+.contactame ul{
+    list-style-type: none;
+}
+object{
+    width: 2rem;
+}
+.vl{
+    border-left: 6px solid #D9D9D9;
+    height: 14rem;
+    left: 50%;
+    margin-left: -3px;
+    top: 0;
 }
