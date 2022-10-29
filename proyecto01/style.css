@@ -66,8 +66,6 @@ section>h2{
     overflow: hidden;
     margin: 0;
     padding: 0;
-    position: sticky;
-    position: -webkit-sticky;
     top: 0;
     width: 100%;
 }
@@ -200,7 +198,7 @@ section>h2{
     text-align: center;
     padding-bottom: 3%;
 }
-
+/*ARREGLAR ESTO*/
 #datos{
     border-right: 0.4rem solid #D9D9D9;
     padding-right: 12rem;
@@ -351,5 +349,42 @@ textarea{
         margin: 1vw;
         column-gap: 4vw;
     }
-
+    .botones{
+        align-items: stretch;
+        height: 10vw;
+    }
+    .banner{
+        padding: 5%;
+        row-gap: 2.3vw;
+        flex-direction: row;
+        column-gap: 1vw;
+        margin: 2%;
+    }
+    .foto{
+        width: 30%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+    .foto img{
+        height: 25vw;
+        width: auto;
+        transition: all 0.5s;
+        cursor: zoom-in;
+    }
+    #info{
+        width: 60%;
+        margin-left: 5vw;
+        row-gap: 2vw;
+    }
+    #info>audio{
+        width: 50vw;
+    }
+    .relevante{
+        border-top: 1vw solid #ccc;
+        padding-top: 3vw;
+    }
+    .knowme>h2{
+        margin-bottom: 2%;
+    }
 }
