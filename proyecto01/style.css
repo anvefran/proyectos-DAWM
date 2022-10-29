@@ -23,11 +23,16 @@ section>h2{
     align-items: center;
     padding: 0.5%;
 }
+
 .logo{
+    flex-grow: 1;
     display: inline-flex;
     align-items: center;
-    flex-grow: 1;
+    justify-content: center;
+    flex: 1;
+    flex-grow: 2;
 }
+
 .search{
     flex-grow: 3;
 }  
@@ -250,6 +255,7 @@ object{
     column-gap: 1rem;
     padding: 2rem;
     transition: box-shadow .3s;
+    flex: 1;
 }
 #habilidades div:hover, #idiomas table:hover {
     box-shadow: 0 0 11px rgba(19, 18, 18, 0.2); 
@@ -333,3 +339,17 @@ textarea{
     justify-content: center;
 }
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    header{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        row-gap: 1em;
+        flex-direction: row;
+        align-items: center;
+        padding: 1%;
+        margin: 1vw;
+        column-gap: 4vw;
+    }
+
+}
