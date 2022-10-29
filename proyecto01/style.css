@@ -198,7 +198,7 @@ section>h2{
     text-align: center;
     padding-bottom: 3%;
 }
-/*ARREGLAR ESTO*/
+
 #datos{
     border-right: 0.4rem solid #D9D9D9;
     padding-right: 12rem;
@@ -219,12 +219,9 @@ section>h2{
 object{
     width: 2rem;
 }
-
-.hl{
-    border-bottom: 0.4rem solid #D9D9D9;
-    width: 100%;
-    bottom: 50%;
-    top: 0;
+.linea2, .educacion, .trabajo, .logros,.habilidades{
+    border-bottom:0.8vw solid #D9D9D9;
+    padding-bottom:2vw;
 }
 
 .educacion{
@@ -387,4 +384,18 @@ textarea{
     .knowme>h2{
         margin-bottom: 2%;
     }
+    #datos{
+        border-right: 0;
+        padding-right: 0;
+    }
+    .educacion object{
+        transform: rotate(90deg);
+    }
+    .logros{
+        flex-wrap: wrap;
+    }
+    #certificaciones, #premios{
+        width: 100%;
+    }
+    
 }
