@@ -5,11 +5,15 @@
     padding: 0;
 }
 
-
-h2{
+#info h2{
     color: #810556;
     text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
-    
+}
+section>h2{
+    color: #810556;
+    text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    padding: 1rem;
 }
 
 .header{
@@ -19,35 +23,32 @@ h2{
     align-items: center;
     padding: 0.5%;
 }
-.header .logo{
+.logo{
     display: inline-flex;
     align-items: center;
     flex-grow: 1;
 }
-.header .search{
+.search{
     flex-grow: 3;
 }  
-.header .botones{
+.botones{
     display: inline-flex;
     flex-grow: 1;
     align-items: center;
     justify-content: center;
 }
-.header .botones button{
+.botones > *{
     margin: 2%;
+    cursor: pointer;
 }
-.header .logo img{
+.logo img{
     height: 4rem;
     width: auto;
 }
-.header .search #buscador{
+#buscador{
     width: 60%;
 }
-.header .search #buscar{
-    cursor: pointer;
-}
-
-.header .botones button{
+#buscar{
     cursor: pointer;
 }
 
@@ -93,30 +94,30 @@ h2{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-.banner .foto{
+.foto{
     flex-grow: 0;
     padding: 0.3% 2% 0.3% 1%;
 }
 
-.banner .foto img{
+.foto img{
     height: 10rem;
     width: auto;
     transition: all 0.5s;
     cursor: zoom-in;
 }
-.banner .foto img:hover{
+.foto img:hover{
     transform: scale(1.2);
 }
-.banner #info{
+#info{
     flex-grow: 1;
 }
-.banner .relevante{
+.relevante{
     flex-grow: 2;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
 }
-.banner .relevante #reldiv{
+#reldiv{
     background-color: #D9F4FD;
     border-radius: 2rem;
     padding: 2% 10%;
@@ -125,10 +126,10 @@ h2{
     text-align: left;
     
 }
-.banner .relevante #reldiv label{
+#reldiv label{
     font-weight: bold;
 }
-.banner .relevante ul{
+.relevante ul{
     list-style-type: circle;
 }
 #form{
@@ -145,7 +146,7 @@ h2{
     color: black;
     margin: 0 5%;
 }
-.banner #info{
+#info{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -160,7 +161,7 @@ h2{
     padding: 0.5%;
     
 }
-.knowme #parrafo{
+#parrafo{
     background-color: #D9D9D9;
     padding: 2%;
 }
@@ -200,13 +201,13 @@ h2{
     padding-right: 12rem;
 }
 
-.linea2 #datos #datosper ul{
+#datosper ul{
     list-style-type: none;
 }
-#contactame #redes{
+#redes{
     display: flex;
 }
-#contactame #redes li{
+#redes li{
     padding: 5%;
 }
 #contactame ul{
@@ -215,13 +216,6 @@ h2{
 object{
     width: 2rem;
 }
-/*
-.vl{
-    border-left: 0.4rem solid #D9D9D9;
-    height: 14rem;
-    left: 50%;
-    top: 0;
-}*/
 
 .hl{
     border-bottom: 0.4rem solid #D9D9D9;
@@ -238,11 +232,7 @@ object{
     column-gap: 0.5rem;
     justify-content: space-between;
 }
-.educacion h2, .experiencia h2, .referencias h2, #certificaciones h2, #premios h2, #habilidades h2, #idiomas h2{
-    text-align: center;
-    padding: 1rem;
-}
-#sdginfo,#espolinfo{
+.educacion>div{
     display: flex;
     flex-wrap: wrap;
     column-gap: 0.5rem;
@@ -250,7 +240,7 @@ object{
     padding: 1rem;
     justify-content: space-evenly;
 }
-#sdgbanner, #espolbanner, #docencia, #gestion, #refdocencia, #refgestion,#content, #habilidades div, #idiomas table{
+.educacion div>div, .experiencia>div, .referencias>p,#content, #habilidades div, #idiomas table{
     display: flex;
     flex-wrap: wrap;
     row-gap: 0.5rem;
@@ -261,7 +251,11 @@ object{
     padding: 2rem;
     transition: box-shadow .3s;
 }
-#sdgbanner:hover, #espolbanner:hover, #docencia:hover, #gestion:hover, #refdocencia:hover, #refgestion:hover,#content:hover, #habilidades div:hover, #idiomas table:hover {
+#habilidades div:hover, #idiomas table:hover {
+    box-shadow: 0 0 11px rgba(19, 18, 18, 0.2); 
+}
+
+.educacion div>div:hover, .experiencia> div:hover, .referencias>p:hover,#content:hover, #habilidades div:hover, #idiomas table:hover {
     box-shadow: 0 0 11px rgba(19, 18, 18, 0.2); 
 }
 #sdginfo img, #espolinfo img, #docencia img, #gestion img{
@@ -272,7 +266,7 @@ object{
     height: 15rem;
     width: auto;
 }
-.trabajo, .habilidades, #interes{
+.trabajo, .habilidades, .final{
     display: flex;
     flex-wrap: wrap;
     row-gap: 0.5rem;
