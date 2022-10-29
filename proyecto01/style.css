@@ -127,7 +127,7 @@ section>h2{
     margin-right: 5%;
     margin-left: 5%;
     text-align: left;
-    
+    transition: box-shadow .3s;    
 }
 #reldiv label{
     font-weight: bold;
@@ -252,11 +252,8 @@ object{
     transition: box-shadow .3s;
     flex: 1;
 }
-#habilidades div:hover, #idiomas table:hover {
-    box-shadow: 0 0 11px rgba(19, 18, 18, 0.2); 
-}
 
-.educacion div>div:hover, .experiencia> div:hover, .referencias>p:hover,#content:hover, #habilidades div:hover, #idiomas table:hover {
+.educacion div>div:hover, .experiencia> div:hover, .referencias>p:hover,#content:hover, #habilidades div:hover, #idiomas table:hover, #reldiv:hover {
     box-shadow: 0 0 11px rgba(19, 18, 18, 0.2); 
 }
 #sdginfo img, #espolinfo img, #docencia img, #gestion img{
