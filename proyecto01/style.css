@@ -5,12 +5,12 @@
     padding: 0;
 }
 
+
 h2{
     color: #810556;
     text-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
     
 }
-
 
 .header{
     display: flex;
@@ -192,37 +192,41 @@ h2{
 }
 .linea2 h2{
     text-align: center;
-    padding-bottom: 5%;
+    padding-bottom: 3%;
 }
 
-.linea2 .datos #datosper ul{
+#datos{
+    border-right: 0.4rem solid #D9D9D9;
+    padding-right: 12rem;
+}
+
+.linea2 #datos #datosper ul{
     list-style-type: none;
 }
-.contactame #redes{
+#contactame #redes{
     display: flex;
 }
-.contactame #redes li{
-    padding: 6%;
+#contactame #redes li{
+    padding: 5%;
 }
-.contactame ul{
+#contactame ul{
     list-style-type: none;
 }
 object{
     width: 2rem;
 }
+/*
 .vl{
-    border-left: 6px solid #D9D9D9;
+    border-left: 0.4rem solid #D9D9D9;
     height: 14rem;
     left: 50%;
-    margin-left: -3px;
     top: 0;
-}
+}*/
 
 .hl{
-    border-bottom: 6px solid #D9D9D9;
+    border-bottom: 0.4rem solid #D9D9D9;
     width: 100%;
     bottom: 50%;
-    margin-bottom: -3px;
     top: 0;
 }
 
@@ -234,48 +238,104 @@ object{
     column-gap: 0.5rem;
     justify-content: space-between;
 }
-.educacion h2{
+.educacion h2, .experiencia h2, .referencias h2, #certificaciones h2, #premios h2, #habilidades h2, #idiomas h2{
     text-align: center;
-    padding: 1.5rem;
+    padding: 1rem;
 }
-#sdginfo{
+#sdginfo,#espolinfo{
     display: flex;
+    flex-wrap: wrap;
     column-gap: 0.5rem;
+    row-gap: 0.5rem;
     padding: 1rem;
     justify-content: space-evenly;
 }
-#sdgbanner{
+#sdgbanner, #espolbanner, #docencia, #gestion, #refdocencia, #refgestion,#content, #habilidades div, #idiomas table{
     display: flex;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
     background-color: #D9D9D9;
     border-radius: 2rem;
     align-items: center;
     column-gap: 1rem;
     padding: 2rem;
+    transition: box-shadow .3s;
 }
-#sdginfo img{
+#sdgbanner:hover, #espolbanner:hover, #docencia:hover, #gestion:hover, #refdocencia:hover, #refgestion:hover,#content:hover, #habilidades div:hover, #idiomas table:hover {
+    box-shadow: 0 0 11px rgba(19, 18, 18, 0.2); 
+}
+#sdginfo img, #espolinfo img, #docencia img, #gestion img{
     height: 5rem;
     width: auto;
 }
-iframe{
-    height: 10rem;
+#sdginfo iframe, #espolinfo iframe{
+    height: 15rem;
     width: auto;
+}
+.trabajo, .habilidades, #interes{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
+    justify-content: space-evenly;
+    padding: 1%;
+}
+.experiencia, .referencias, #certificaciones, #premios, #habilidades, #idiomas, #quehacer, #form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    justify-content: center;
 }
 
-#espolinfo{
+.logros{
     display: flex;
-    column-gap: 0.5rem;
-    padding: 1rem;
+    flex-direction: row;
+    padding: 1%;
     justify-content: space-evenly;
+    column-gap: 0.5rem;
+    row-gap: 0.5rem;
 }
-#espolbanner{
+
+#certificaciones, #premios{
+    width: 50%;
+}
+
+table{
+    border-radius: 2%;
+    border-color: #810556;
+    border-collapse: collapse;
+    width: max-content;
+    height: auto;
+    text-align: center;
+}
+td, th{
+    border: #810556 0.3rem solid;
+    padding: 1rem;
+}
+h3{
+    color: #122A4F;
+}
+#interes div{
     display: flex;
-    background-color: #D9D9D9;
-    border-radius: 2rem;
+    flex-direction: column;
+    row-gap: 0.7rem;
     align-items: center;
-    column-gap: 1rem;
-    padding: 2rem;
 }
-#espolinfo img{
-    height: 5rem;
-    width: auto;
+form{
+    line-height: 1.5;
+    background-color:#ccc;
+    padding: 2%;
+    border-radius: 2rem;
 }
+
+textarea{
+	background-color: #EAD3F5;
+    border-radius: 0.5rem;
+}
+#quehacer iframe{
+    width: fit-content;
+}
+#quehacer{
+    justify-content: center;
+}
+
