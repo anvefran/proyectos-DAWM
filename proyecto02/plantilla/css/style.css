@@ -37,3 +37,12 @@ body {
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }
+.general{
+  display: flex;
+  flex-direction: row;
+}
+.grass {
+  background-color: #5bec93ce;
+  border-radius: 5%;
+  padding: 1%;
+}

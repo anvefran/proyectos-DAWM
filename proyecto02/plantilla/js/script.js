@@ -42,18 +42,18 @@ let mostrarInfo = () => {
           document.getElementById("info").innerHTML += `<div class="general"><span>Weight: ${weight}</span></div>`
           let abilities = data["abilities"]
           
-          document.getElementById("info").innerHTML += `<div><h3>Types</h3></div>`
+          document.getElementById("info").innerHTML += `<div><h6 class="mb-0 text-center">Types</h6></div>`
           for(let tipo of tipos) {
             let plantilla = `
               <div class="general">
-                  <div class="text">
+                  <div class="${tipo.type.name}">
                       <span>${tipo.type.name}</span>
                   </div>
               </div>
             `
             document.getElementById("info").innerHTML += plantilla
           }
-          document.getElementById("info").innerHTML += `<div><h3>Abilities</h3></div>`
+          document.getElementById("info").innerHTML += `<div><h6 class="mb-0 text-center">Abilities</h6></div>`
           for(let ability of abilities){
             let plantilla = `
               <div class="general">
@@ -70,4 +70,3 @@ let mostrarInfo = () => {
       })
     
 }
-
