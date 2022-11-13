@@ -46,11 +46,12 @@ let mostrarInfo = () => {
         document.getElementById("infoPokemon").innerHTML = ''
 
         for( let frase of frasesfiltradas) {
+            let info = frase.flavor_text.replace(/\f/g, " ");
             let plantilla = `
               <div class="flavorText">
                   <div class="text">
                       <span>Version: ${frase.version["name"]}</span>
-                      <span>${frase.flavor_text}</span>
+                      <span>${info}</span>
                   </div>
               </div>
             `
