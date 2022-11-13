@@ -43,25 +43,24 @@ let mostrarInfo = () => {
         let frasesfiltradas = frases.filter(frase => frase["language"]["name"] == "en" );
 
         console.log(frasesfiltradas)
-        document.getElementById("infoPokemon").innerHTML = ''
+        document.getElementById("flavorTexts").innerHTML = `<tr>
+        <th>Version</th>
+        <th>Flavor text</th>
+        </tr>`
 
         for( let frase of frasesfiltradas) {
             let info = frase.flavor_text.replace(/\f/g, " ");
             let plantilla = `
-              <div class="flavorText">
-                  <div class="text">
-                      <span>Version: ${frase.version["name"]}</span>
-                      <span>${info}</span>
-                  </div>
-              </div>
-            `
-            document.getElementById("infoPokemon").innerHTML += plantilla
-  
-          }
+                <tr>
+                    <td><span>${frase.version["name"]}</span></td>
+                    <td><span>${info}</span></td>
+                </tr>
 
+            `
+            document.getElementById("flavorTexts").innerHTML += plantilla
+        }
       })
 
-      
   
     })
 }
