@@ -29,39 +29,49 @@ let cargarDatos = () => {
 
 let mostrarInfo = () => {
     let select = document.getElementsByClassName('select')[0]
-  
+
     select.addEventListener("change", (event) => {
-      let valor = event.target.value;
-      console.log(valor)
-      let url = `https://pokeapi.co/api/v2/pokemon-species/${valor}/`
-      console.log(url)
+        let valor = event.target.value;
+        let url = `https://pokeapi.co/api/v2/pokemon/${valor}/`
 
-      fetch(url)
-      .then(response => response.json())
-      .then( data => {
-        let frases = data["flavor_text_entries"]
-        let frasesfiltradas = frases.filter(frase => frase["language"]["name"] == "en" );
-
-        console.log(frasesfiltradas)
-        document.getElementById("flavorTexts").innerHTML = `<tr>
-        <th>Version</th>
-        <th>Flavor text</th>
-        </tr>`
-
-        for( let frase of frasesfiltradas) {
-            let info = frase.flavor_text.replace(/\f/g, " ");
+        fetch(url)
+        .then(response => response.json())
+        .then( data => {
+          let tipos = data["types"]
+          let baseExp = data["base_experience"]
+          document.getElementById("info").innerHTML = `<div class="general"><span>Base experience:${baseExp}</span></div>`
+          let height = data["height"]
+          document.getElementById("info").innerHTML += `<div class="general"><span>Height: ${height}</span></div>`
+          let weight = data["weight"]
+          document.getElementById("info").innerHTML += `<div class="general"><span>Weight: ${weight}</span></div>`
+          let abilities = data["abilities"]
+          
+          document.getElementById("info").innerHTML += `<div><h3>Types</h3></div>`
+          for(let tipo of tipos) {
             let plantilla = `
-                <tr>
-                    <td><span>${frase.version["name"]}</span></td>
-                    <td><span>${info}</span></td>
-                </tr>
-
+              <div class="general">
+                  <div class="text">
+                      <span>${tipo.type.name}</span>
+                  </div>
+              </div>
             `
-            document.getElementById("flavorTexts").innerHTML += plantilla
-        }
-      })
-
+            document.getElementById("info").innerHTML += plantilla
+          }
+          document.getElementById("info").innerHTML += `<div><h3>Abilities</h3></div>`
+          for(let ability of abilities){
+            let plantilla = `
+              <div class="general">
+                  <div id="ability">
+                      <span>${ability.ability.name}</span>
+                  </div>
+              </div>
+            `
+            document.getElementById("info").innerHTML += plantilla
+          }
+        })
   
-    })
+    
+      })
+    
 }
 
