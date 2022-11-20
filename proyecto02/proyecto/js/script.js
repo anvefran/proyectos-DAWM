@@ -10,7 +10,7 @@ let cargarDatos = () => {
         .then(response => response.json())
         .then(data => {
             let pokemon = data["results"]
-            let select = document.getElementsByClassName('select')[0]          
+            let select = document.getElementsByClassName('form-select')[0]          
 
             pokemon.forEach(function (element) {
                 let option = document.createElement("option")
@@ -24,7 +24,7 @@ let cargarDatos = () => {
 }
 
 let mostrarInfo = () => {
-    let select = document.getElementsByClassName('select')[0]
+    let select = document.getElementsByClassName('form-select')[0]
 
     select.addEventListener("change", (event) => {
         let valor = event.target.value;
