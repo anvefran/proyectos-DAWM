@@ -37,6 +37,7 @@ let mostrarInfo = () => {
           document.getElementById("infoPokemon").innerHTML = ``
           let info = document.createElement("div")
           info.setAttribute("id", "info")
+          info.setAttribute("class", "card-body")
           document.getElementById("infoPokemon").appendChild(info)
 
           document.getElementById("info").innerHTML = `<div class="general"><span>Base experience: ${baseExp}</span></div>`
@@ -65,6 +66,7 @@ let mostrarInfo = () => {
           let fotopok = document.createElement("img")
           fotopok.setAttribute("src", `${fotoUrl}`)
           fotopok.setAttribute("alt", `${valor}`)
+          fotopok.setAttribute("class", `card-img-top`)
           document.getElementById("infoPokemon").appendChild(fotopok)
           document.getElementById("info").innerHTML += `<div class="general"><h6 class="mb-0 text-center">Abilities</h6></div>`
           let abilitiesDiv = document.createElement("div")
