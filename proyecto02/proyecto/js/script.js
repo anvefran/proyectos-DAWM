@@ -66,7 +66,7 @@ let mostrarInfo = () => {
           let fotopok = document.createElement("img")
           fotopok.setAttribute("src", `${fotoUrl}`)
           fotopok.setAttribute("alt", `${valor}`)
-          fotopok.setAttribute("class", `card-img-top`)
+          fotopok.setAttribute("class", `animate__animated animate__backInRight card-img-top`)
           document.getElementById("infoPokemon").appendChild(fotopok)
           document.getElementById("info").innerHTML += `<div class="general"><h6 class="mb-0 text-center">Abilities</h6></div>`
           let abilitiesDiv = document.createElement("div")
