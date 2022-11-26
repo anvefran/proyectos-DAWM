@@ -54,7 +54,9 @@ cargarBotones = () =>{
 
 
 function filtrar(event) {
-  showAll()
+  if(document.getElementsByClassName("img-thumbnail").length != 905){
+    showAll()
+  }
   let tipo = event.target.textContent
   let url = `https://pokeapi.co/api/v2/type/${tipo}/`
   fetch(url)
