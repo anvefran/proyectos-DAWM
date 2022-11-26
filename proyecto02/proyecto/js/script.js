@@ -20,6 +20,10 @@ let showAll = () => {
               fotopok.setAttribute("src", `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${count}.png`)
               fotopok.setAttribute("alt", `${nombre}`)
               fotopok.setAttribute("class", `img-thumbnail ${nombre}`)
+              fotopok.setAttribute("data-toggle","tooltip")
+              fotopok.setAttribute("data-placement","bottom")
+              fotopok.setAttribute("title",`${nombre}`)
+              fotopok.setAttribute("role", "button")
               select.appendChild(fotopok)
               count = count + 1
             });
@@ -41,7 +45,7 @@ cargarBotones = () =>{
           pokemon.forEach(function (element) {
               let tipo = element.name
               let boton = document.createElement("button")
-              boton.setAttribute("class", `btn ${tipo}`)
+              boton.setAttribute("class", `m-1 btn ${tipo}`)
               boton.setAttribute("type", "button")
               boton.textContent = tipo
               boton.addEventListener("click", filtrar);
@@ -68,7 +72,7 @@ function filtrar(event) {
             let name = element.pokemon.name
             let elemento = document.getElementsByClassName(`${name}`)[0]
             if (elemento != null || elemento != undefined){
-              elemento.setAttribute("class", `t${tipo}`)
+              elemento.setAttribute("class", `img-thumbnail ${name} t${tipo}`)
             }
           });
           $(`.imagenes :not(.t${tipo})`).remove();
