@@ -36,7 +36,7 @@ body {
   padding-top: 0.5rem;
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-}
+}/*
 .info, #info{
   display: flex;
   align-items: center;
@@ -57,7 +57,7 @@ body {
 .tipo{
   border-radius: 5%;
   padding: 0.5rem;
-}
+}*/
 .grass{
   background-color: #3ff17ace;
 }
@@ -114,12 +114,12 @@ body {
 }
 .water{
   background-color: #5d5becce;
-}
+}/*
 .general{
   padding-bottom: 1%;
   padding-top: 1%;
   align-items: center;
   justify-content: center;
   text-align: center;
-}
+}*/
 

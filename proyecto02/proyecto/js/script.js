@@ -10,16 +10,17 @@ let showAll = () => {
   fetch(url)
       .then(response => response.json())
       .then(data => {
-          let pokemon = data["results"]
+          let pokemon = data["results"] 
           let select = document.getElementsByClassName('imagenes')[0]   
           select.innerHTML = ""
           let count = 1 
           pokemon.forEach(function (element) {
               let nombre = element.name
               let fotopok = document.createElement("img")
+              fotopok.addEventListener("click", mostrarInfo);
               fotopok.setAttribute("src", `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${count}.png`)
               fotopok.setAttribute("alt", `${nombre}`)
-              fotopok.setAttribute("class", `img-thumbnail ${nombre}`)
+              fotopok.setAttribute("class", `imagen img-thumbnail ${nombre}`)
               fotopok.setAttribute("data-toggle","tooltip")
               fotopok.setAttribute("data-placement","bottom")
               fotopok.setAttribute("title",`${nombre}`)
@@ -29,19 +30,20 @@ let showAll = () => {
             });
       })
       .catch(console.error);
-
 }
 
 let reset = document.getElementById("reset")
 reset.addEventListener("click", showAll);
 
 cargarBotones = () =>{
+  let select = document.getElementsByClassName('pok')[0]  
+  let div = document.createElement("div")
+  div.setAttribute("class", "botones text-center")
   let url = "https://pokeapi.co/api/v2/type/"
   fetch(url)
       .then(response => response.json())
       .then(data => {
-          let pokemon = data["results"]
-          let select = document.getElementsByClassName('botones')[0]   
+          let pokemon = data["results"] 
           pokemon.forEach(function (element) {
               let tipo = element.name
               let boton = document.createElement("button")
@@ -49,16 +51,16 @@ cargarBotones = () =>{
               boton.setAttribute("type", "button")
               boton.textContent = tipo
               boton.addEventListener("click", filtrar);
-              select.appendChild(boton)
+              div.appendChild(boton)
             });
       })
       .catch(console.error);
-
+  select.prepend(div)
 }
 
 
 function filtrar(event) {
-  if(document.getElementsByClassName("img-thumbnail").length != 905){
+  if(document.getElementsByClassName("imagen").length != 905){
     showAll()
   }
   let tipo = event.target.textContent
@@ -67,12 +69,11 @@ function filtrar(event) {
       .then(response => response.json())
       .then(data => {
           let pokemons = data["pokemon"]
-          console.log(pokemons)
           pokemons.forEach(function (element) {
             let name = element.pokemon.name
             let elemento = document.getElementsByClassName(`${name}`)[0]
             if (elemento != null || elemento != undefined){
-              elemento.setAttribute("class", `img-thumbnail ${name} t${tipo}`)
+              elemento.setAttribute("class", `imagen img-thumbnail ${name} t${tipo}`)
             }
           });
           $(`.imagenes :not(.t${tipo})`).remove();
@@ -80,94 +81,84 @@ function filtrar(event) {
       .catch(console.error);
 }
 
-
-let cargarDatos = () => {
-  console.log('DOM cargado y analizado');
-  let url = 'https://pokeapi.co/api/v2/pokemon-species?limit=905'
+function mostrarInfo(event) {
+  let select = document.getElementsByClassName('pok')[0]
+  select.innerHTML = ``
+  let nombre = event.target.title;
+  let url = `https://pokeapi.co/api/v2/pokemon/${nombre}/`
   fetch(url)
-      .then(response => response.json())
-      .then(data => {
-          let pokemon = data["results"]
-          let select = document.getElementsByClassName('form-select')[0]          
-
-          pokemon.forEach(function (element) {
-              let option = document.createElement("option")
-              option.innerHTML = element.name
-              select.appendChild(option)
-            });
-          
-      })
-      .catch(console.error);
-
+    .then(response => response.json())
+    .then( data => {
+      let container = document.createElement("div")
+      container.setAttribute("id", "container")
+      container.setAttribute("class", "container justify-content-center text-center")
+      let fotoUrl = data["sprites"]["front_default"]
+      if (fotoUrl != null){
+        let fotopok = document.createElement("img")
+        fotopok.setAttribute("src", `${fotoUrl}`)
+        fotopok.setAttribute("alt", `${nombre}`)
+        fotopok.setAttribute("class", `animate__animated animate__backInRight text-center img-thumbnail`)
+        container.appendChild(fotopok)
+      }
+      let baseExp = data["base_experience"]
+      if (baseExp != null){
+        container.innerHTML += `<span class= "p-2 font-weight-bold">Base experience:</span><span class= "p-2">${baseExp}</span>`
+      }
+      let height = data["height"]
+      container.innerHTML += `<span class= "p-2 font-weight-bold">Height: </span><span class= "p-2">${height}</span>`
+      let weight = data["weight"]
+      container.innerHTML += `<span class= "p-2 font-weight-bold">Weight: </span><span class= "p-2">${weight}</span>`
+      let abilities = data["abilities"]
+      container.innerHTML += `<h6 class="mb-0 text-center p-2">Types</h6>`
+      let tiposDiv = document.createElement("div")
+      tiposDiv.setAttribute("id", "tipos")
+      tiposDiv.setAttribute("class", "d-flex flex-row justify-content-around p-2")
+      let tipos = data["types"]
+      for(let tipo of tipos) {
+        let plantilla = `
+            <div class = "${tipo.type.name} p-2" >
+                <span class ="p-2">${tipo.type.name}</span>
+            </div>
+        `
+        tiposDiv.innerHTML += plantilla
+      }
+      container.appendChild(tiposDiv)
+        
+      container.innerHTML += `<h6 class="mb-0 text-center p-2">Abilities</h6>`
+      let abilitiesDiv = document.createElement("div")
+      abilitiesDiv.setAttribute("id", "abilities")
+      abilitiesDiv.setAttribute("class", "d-flex flex-row justify-content-around")
+      for(let ability of abilities){
+        let plantilla = `
+            <div id="ability" class = "p-2">
+              <span class = "p-2">${ability.ability.name}</span>
+            </div>
+        `
+        abilitiesDiv.innerHTML += plantilla
+      }
+      container.appendChild(abilitiesDiv)
+      select.appendChild(container)
+    })
+    //LLAMADA AL METODO SHOWGRAPHS
+    let regresar = document.createElement("button")
+    regresar.setAttribute("class", `m-1 btn regresar`)
+    regresar.setAttribute("type", "button")
+    regresar.textContent = "Back to All Pokemons"
+    regresar.addEventListener("click", back);
+    select.appendChild(regresar)
 }
-
-let mostrarInfo = () => {
-    let select = document.getElementsByClassName('form-select')[0]
-
-    select.addEventListener("change", (event) => {
-        let valor = event.target.value;
-        let url = `https://pokeapi.co/api/v2/pokemon/${valor}/`
-        fetch(url)
-        .then(response => response.json())
-        .then( data => {
-          let tipos = data["types"]
-          let baseExp = data["base_experience"]
-          document.getElementById("infoPokemon").innerHTML = ``
-          let info = document.createElement("div")
-          info.setAttribute("id", "info")
-          info.setAttribute("class", "card-body")
-          document.getElementById("infoPokemon").appendChild(info)
-          if (baseExp != null){
-            document.getElementById("info").innerHTML = `<div class="general"><span>Base experience: ${baseExp}</span></div>`
-          }
-          
-          let height = data["height"]
-          document.getElementById("info").innerHTML += `<div class="general"><span>Height: ${height}</span></div>`
-          let weight = data["weight"]
-          document.getElementById("info").innerHTML += `<div class="general"><span>Weight: ${weight}</span></div>`
-          let abilities = data["abilities"]
-          
-          document.getElementById("info").innerHTML += `<div class="general"><h6 class="mb-0 text-center">Types</h6></div>`
-          let tiposDiv = document.createElement("div")
-          tiposDiv.setAttribute("id", "tipos")
-          tiposDiv.setAttribute("class", "general")
-          document.getElementById("info").appendChild(tiposDiv)
-          let fotoUrl = data["sprites"]["front_default"]
-
-          for(let tipo of tipos) {
-            let plantilla = `
-                <div class = "tipo ${tipo.type.name}">
-                    <span>${tipo.type.name}</span>
-                </div>
-
-            `
-            document.getElementById("tipos").innerHTML += plantilla
-          }
-          if (fotoUrl != null){
-            let fotopok = document.createElement("img")
-            fotopok.setAttribute("src", `${fotoUrl}`)
-            fotopok.setAttribute("alt", `${valor}`)
-            fotopok.setAttribute("class", `animate__animated animate__backInRight card-img-top`)
-            document.getElementById("infoPokemon").appendChild(fotopok)
-          }
-          
-          document.getElementById("info").innerHTML += `<div class="general"><h6 class="mb-0 text-center">Abilities</h6></div>`
-          let abilitiesDiv = document.createElement("div")
-          abilitiesDiv.setAttribute("id", "abilities")
-          abilitiesDiv.setAttribute("class", "general")
-          document.getElementById("info").appendChild(abilitiesDiv)
-
-          for(let ability of abilities){
-            let plantilla = `
-                <div id="ability">
-                  <span>${ability.ability.name}</span>
-                </div>
-            `
-            document.getElementById("abilities").innerHTML += plantilla
-          }
-        })
-  
-    
-      })
-    
+function back(event){
+  let select = document.getElementsByClassName("pok")[0]
+  select.innerHTML = ""
+  let reset = document.createElement("button")
+  reset.setAttribute("type", "reset")
+  reset.setAttribute("class", "btn m-3")
+  reset.setAttribute("id", "reset")
+  reset.textContent = "Reset Filter"
+  select.appendChild(reset)
+  let div = document.createElement("div")
+  div.setAttribute("class","imagenes text-center")
+  select.appendChild(div)
+  showAll();
+  cargarBotones();
 }
