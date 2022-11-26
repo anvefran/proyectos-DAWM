@@ -1,5 +1,6 @@
 window.addEventListener('DOMContentLoaded', (event) => {
     showAll();
+    cargarBotones();
     //cargarDatos();
     //mostrarInfo();
 });
@@ -10,9 +11,7 @@ let showAll = () => {
       .then(response => response.json())
       .then(data => {
           let pokemon = data["results"]
-          let select = document.getElementsByClassName('pok')[0]
-          select.innerHTML = ""
-          console.log(select)         
+          let select = document.getElementsByClassName('imagenes')[0]   
           let count = 1 
           pokemon.forEach(function (element) {
               let nombre = element.name
@@ -22,9 +21,27 @@ let showAll = () => {
               fotopok.setAttribute("class", `img-thumbnail`)
               select.appendChild(fotopok)
               count = count + 1
-
             });
-          
+      })
+      .catch(console.error);
+
+}
+
+cargarBotones = () =>{
+  let url = "https://pokeapi.co/api/v2/type/"
+  fetch(url)
+      .then(response => response.json())
+      .then(data => {
+          let pokemon = data["results"]
+          let select = document.getElementsByClassName('botones')[0]   
+          pokemon.forEach(function (element) {
+              let tipo = element.name
+              let boton = document.createElement("button")
+              boton.setAttribute("class", `btn ${tipo}`)
+              boton.setAttribute("type", "button")
+              boton.textContent = tipo
+              select.appendChild(boton)
+            });
       })
       .catch(console.error);
 
@@ -85,7 +102,7 @@ let mostrarInfo = () => {
 
           for(let tipo of tipos) {
             let plantilla = `
-                <div class = "tipo" id="${tipo.type.name}">
+                <div class = "tipo ${tipo.type.name}">
                     <span>${tipo.type.name}</span>
                 </div>
 
