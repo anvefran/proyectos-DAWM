@@ -1,10 +1,34 @@
 window.addEventListener('DOMContentLoaded', (event) => {
-    //showAll();
-    cargarDatos();
-    mostrarInfo();
+    showAll();
+    //cargarDatos();
+    //mostrarInfo();
 });
 
+let showAll = () => {
+  let url = 'https://pokeapi.co/api/v2/pokemon-species?limit=905'
+  fetch(url)
+      .then(response => response.json())
+      .then(data => {
+          let pokemon = data["results"]
+          let select = document.getElementsByClassName('pok')[0]
+          select.innerHTML = ""
+          console.log(select)         
+          let count = 1 
+          pokemon.forEach(function (element) {
+              let nombre = element.name
+              let fotopok = document.createElement("img")
+              fotopok.setAttribute("src", `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${count}.png`)
+              fotopok.setAttribute("alt", `${nombre}`)
+              fotopok.setAttribute("class", `img-thumbnail`)
+              select.appendChild(fotopok)
+              count = count + 1
 
+            });
+          
+      })
+      .catch(console.error);
+
+}
 
 let cargarDatos = () => {
   console.log('DOM cargado y analizado');
