@@ -147,6 +147,7 @@ function mostrarInfo(event) {
     regresar.addEventListener("click", back);
     select.appendChild(regresar)
 }
+
 function back(event){
   let select = document.getElementsByClassName("pok")[0]
   select.innerHTML = ""
@@ -154,6 +155,7 @@ function back(event){
   reset.setAttribute("type", "reset")
   reset.setAttribute("class", "btn m-3")
   reset.setAttribute("id", "reset")
+  reset.addEventListener("click", showAll)
   reset.textContent = "Reset Filter"
   select.appendChild(reset)
   let div = document.createElement("div")
