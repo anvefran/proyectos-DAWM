@@ -60,7 +60,7 @@ cargarBotones = () =>{
 
 
 function filtrar(event) {
-  if(document.getElementsByClassName("imagen").length != 905){
+  if(document.getElementsByClassName("imagenes").innerHTML != ""){
     showAll()
   }
   let tipo = event.target.textContent
