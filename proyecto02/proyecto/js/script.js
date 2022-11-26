@@ -12,13 +12,14 @@ let showAll = () => {
       .then(data => {
           let pokemon = data["results"]
           let select = document.getElementsByClassName('imagenes')[0]   
+          select.innerHTML = ""
           let count = 1 
           pokemon.forEach(function (element) {
               let nombre = element.name
               let fotopok = document.createElement("img")
               fotopok.setAttribute("src", `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${count}.png`)
               fotopok.setAttribute("alt", `${nombre}`)
-              fotopok.setAttribute("class", `img-thumbnail`)
+              fotopok.setAttribute("class", `img-thumbnail ${nombre}`)
               select.appendChild(fotopok)
               count = count + 1
             });
@@ -26,6 +27,9 @@ let showAll = () => {
       .catch(console.error);
 
 }
+
+let reset = document.getElementById("reset")
+reset.addEventListener("click", showAll);
 
 cargarBotones = () =>{
   let url = "https://pokeapi.co/api/v2/type/"
@@ -40,12 +44,36 @@ cargarBotones = () =>{
               boton.setAttribute("class", `btn ${tipo}`)
               boton.setAttribute("type", "button")
               boton.textContent = tipo
+              boton.addEventListener("click", filtrar);
               select.appendChild(boton)
             });
       })
       .catch(console.error);
 
 }
+
+
+function filtrar(event) {
+  showAll()
+  let tipo = event.target.textContent
+  let url = `https://pokeapi.co/api/v2/type/${tipo}/`
+  fetch(url)
+      .then(response => response.json())
+      .then(data => {
+          let pokemons = data["pokemon"]
+          console.log(pokemons)
+          pokemons.forEach(function (element) {
+            let name = element.pokemon.name
+            let elemento = document.getElementsByClassName(`${name}`)[0]
+            if (elemento != null || elemento != undefined){
+              elemento.setAttribute("class", `t${tipo}`)
+            }
+          });
+          $(`.imagenes :not(.t${tipo})`).remove();
+      })
+      .catch(console.error);
+}
+
 
 let cargarDatos = () => {
   console.log('DOM cargado y analizado');
