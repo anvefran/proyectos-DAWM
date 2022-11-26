@@ -97,7 +97,7 @@ function mostrarInfo(event) {
         let fotopok = document.createElement("img")
         fotopok.setAttribute("src", `${fotoUrl}`)
         fotopok.setAttribute("alt", `${nombre}`)
-        fotopok.setAttribute("class", `animate__animated animate__backInRight text-center img-thumbnail`)
+        fotopok.setAttribute("class", `animate__animated animate__shakeY text-center img-thumbnail`)
         container.appendChild(fotopok)
       }
       let baseExp = data["base_experience"]
