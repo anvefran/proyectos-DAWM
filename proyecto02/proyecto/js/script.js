@@ -5,9 +5,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
     //mostrarInfo();
 });
 
-let showAll = () => {
+let showAll = async () => {
   let url = 'https://pokeapi.co/api/v2/pokemon-species?limit=905'
-  fetch(url)
+  await fetch(url)
       .then(response => response.json())
       .then(data => {
           let pokemon = data["results"] 
@@ -59,13 +59,13 @@ cargarBotones = () =>{
 }
 
 
-function filtrar(event) {
+async function filtrar(event) {
   //if(document.getElementsByClassName("imagenes").innerHTML != ""){
     showAll()
   //}
   let tipo = event.target.textContent
   let url = `https://pokeapi.co/api/v2/type/${tipo}/`
-  fetch(url)
+  await fetch(url)
       .then(response => response.json())
       .then(data => {
           let pokemons = data["pokemon"]
@@ -81,12 +81,12 @@ function filtrar(event) {
       .catch(console.error);
 }
 
-function mostrarInfo(event) {
+async function mostrarInfo(event) {
   let select = document.getElementsByClassName('pok')[0]
   select.innerHTML = ``
   let nombre = event.target.title;
   let url = `https://pokeapi.co/api/v2/pokemon/${nombre}/`
-  fetch(url)
+  await fetch(url)
     .then(response => response.json())
     .then( data => {
       let container = document.createElement("div")
@@ -166,7 +166,7 @@ function mostrarInfo(event) {
       
     })
 
-    fetch(`https://pokeapi.co/api/v2/pokemon-species/${nombre}/`)
+    await fetch(`https://pokeapi.co/api/v2/pokemon-species/${nombre}/`)
     .then(response => response.json())
     .then( data => {
       let base_hp = data["base_happiness"]
