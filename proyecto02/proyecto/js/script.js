@@ -141,8 +141,6 @@ function mostrarInfo(event) {
 
       //CHARTS
       let stats = data["stats"]
-      console.log(stats)
-      console.log(stats[0]["base_stat"])
       let arrNum = []
       let arrNom = []
       for(let i of stats){
@@ -168,6 +166,39 @@ function mostrarInfo(event) {
       
     })
 
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${nombre}/`)
+    .then(response => response.json())
+    .then( data => {
+      let base_hp = data["base_happiness"]
+      let capture_rate = data["capture_rate"]
+      console.log("basehp", base_hp)
+      console.log("rate", capture_rate)
+      let canvas2 = document.createElement("canvas")
+      select.appendChild(canvas2)
+      canvas2.setAttribute("id", "bar-chart")
+      canvas2 = new Chart(canvas2, {
+        type: "bar",
+        data: {
+          labels: ["Base experience", "Capture rate"],
+          datasets: [{
+            data: [base_hp, capture_rate],
+            backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(255, 50, 200, 0.2)'],
+            borderColor: ['rgb(255, 99, 132)', 'rgb(255, 99, 132)']
+          }],
+          borderWidth: 1
+        },
+        options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+      })
+    })
+
     let regresar = document.createElement("button")
     regresar.setAttribute("class", `m-1 btn regresar`)
     regresar.setAttribute("type", "button")
@@ -175,8 +206,6 @@ function mostrarInfo(event) {
     regresar.addEventListener("click", back);
     select.appendChild(regresar)
 }
-
-
 
 function back(event){
   let select = document.getElementsByClassName("pok")[0]
