@@ -138,8 +138,41 @@ function mostrarInfo(event) {
       }
       container.appendChild(abilitiesDiv)
       select.appendChild(container)
+
+      //CHARTS
+      let stats = data["stats"]
+      console.log(stats)
+      console.log(stats[0]["base_stat"])
+      let arrNum = []
+      let arrNom = []
+      for(let i of stats){
+        arrNum.push(i["base_stat"])
+        arrNom.push(i["stat"]["name"])
+      }
+      let canvas = document.createElement("canvas")
+      select.appendChild(canvas)
+      canvas.setAttribute("id", "radar-chart")
+      canvas = new Chart(canvas, {
+        type: "radar",
+        data: {
+          labels: arrNom,
+          datasets: [{
+            label: "Statistics",
+            data: arrNum,
+            fill: true,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgb(255, 99, 132)',
+            pointBackgroundColor: 'rgb(255, 99, 132)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgb(255, 99, 132)'
+          }]
+        },
+        backgroundColor: "rgba(197,48,48,0.5)",
+      })
+      
     })
-    //LLAMADA AL METODO SHOWGRAPHS
+
     let regresar = document.createElement("button")
     regresar.setAttribute("class", `m-1 btn regresar`)
     regresar.setAttribute("type", "button")
@@ -147,6 +180,10 @@ function mostrarInfo(event) {
     regresar.addEventListener("click", back);
     select.appendChild(regresar)
 }
+
+//function insertGraphs(){
+
+//}
 
 function back(event){
   let select = document.getElementsByClassName("pok")[0]
