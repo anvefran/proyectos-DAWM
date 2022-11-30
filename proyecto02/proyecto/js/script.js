@@ -162,13 +162,8 @@ function mostrarInfo(event) {
             fill: true,
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor: 'rgb(255, 99, 132)',
-            pointBackgroundColor: 'rgb(255, 99, 132)',
-            pointBorderColor: '#fff',
-            pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgb(255, 99, 132)'
           }]
         },
-        backgroundColor: "rgba(197,48,48,0.5)",
       })
       
     })
@@ -181,9 +176,7 @@ function mostrarInfo(event) {
     select.appendChild(regresar)
 }
 
-//function insertGraphs(){
 
-//}
 
 function back(event){
   let select = document.getElementsByClassName("pok")[0]
