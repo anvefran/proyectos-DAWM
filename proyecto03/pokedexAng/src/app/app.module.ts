@@ -8,11 +8,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';  
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatCardModule} from '@angular/material/card';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { AllPokemonsComponent } from './all-pokemons/all-pokemons.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AllPokemonsComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +25,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     MatIconModule,  
     MatButtonModule,
     MatSidenavModule,
+    MatCardModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable

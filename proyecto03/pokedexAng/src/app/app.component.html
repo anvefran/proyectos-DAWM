@@ -4,15 +4,15 @@
   <mat-drawer #enlaces class="example-sidenav" mode="over">
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-3 mt-4">
-        <a href="#pokemonMain" class="list-group-item list-group-item-action py-2 ripple active">
+        <a routerLink="/allPokemons" class="list-group-item list-group-item-action py-2 ripple active">
           <mat-icon>dashboard</mat-icon>
           <span>All Pokemons</span>
         </a>
-        <a href="#getRandom" class="list-group-item list-group-item-action py-2 ripple">
+        <a routerLink="/random" class="list-group-item list-group-item-action py-2 ripple">
           <mat-icon>help_outline</mat-icon>
           <span>Get Random Pokemon! </span>
         </a>
-        <a href="#filterType" class="list-group-item list-group-item-action py-2 ripple">
+        <a routerLink="/filterType" class="list-group-item list-group-item-action py-2 ripple">
           <mat-icon>filter_list</mat-icon>
           <span>Filter by type </span>
         </a>
@@ -38,5 +38,6 @@
     </li>
   </ul>
   </mat-toolbar>  
-    
+
+  <router-outlet></router-outlet> 
 </mat-drawer-container>
