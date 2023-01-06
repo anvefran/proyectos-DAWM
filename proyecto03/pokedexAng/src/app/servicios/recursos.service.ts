@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecursosService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+  getAllPokemons() {
+    return this.http.get('https://pokeapi.co/api/v2/pokemon-species?limit=905')
+    //`https://pokeapi.co/api/v2/pokemon/${nombre}/`
+  }
 }

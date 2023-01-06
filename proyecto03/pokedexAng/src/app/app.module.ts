@@ -9,13 +9,20 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { MatDividerModule } from '@angular/material/divider';
+import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AllPokemonsComponent } from './all-pokemons/all-pokemons.component';
+import { PokemonComponent } from './pokemon/pokemon.component';
+import { RandomComponent } from './random/random.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AllPokemonsComponent
+    AllPokemonsComponent,
+    PokemonComponent,
+    RandomComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +33,9 @@ import { AllPokemonsComponent } from './all-pokemons/all-pokemons.component';
     MatButtonModule,
     MatSidenavModule,
     MatCardModule,
+    MatGridListModule,
+    MatDividerModule,
+    HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
