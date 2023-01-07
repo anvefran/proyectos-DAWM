@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./pokemon.component.css']
 })
 export class PokemonComponent {
-  pokemon! : PokemonI;
+  pokemon : PokemonI = {} as PokemonI;
 
   constructor(private route: ActivatedRoute, private recursosService: RecursosService) {//private recursosService: RecursosService,
     this.route.params.subscribe(params => {
