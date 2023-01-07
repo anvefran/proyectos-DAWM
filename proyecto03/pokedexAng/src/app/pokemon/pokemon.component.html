@@ -5,10 +5,10 @@
   <mat-divider></mat-divider>
   <mat-card-content class="py-3 text-center">
       <div>
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" alt="{{pokemon.name}}" class="imagen img-thumbnail text-center">
+        <img *ngIf="pokemon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" alt="{{pokemon.name}}" class="imagen img-thumbnail text-center">
       </div> 
       <div>
-          <mat-list>
+          <mat-list *ngIf="pokemon">
               <mat-list-item><span class="font-weight-bold">Base experience:</span><span class="p-2">{{pokemon.base_experience}}</span></mat-list-item>
               <mat-list-item><span class="font-weight-bold">Height:</span><span class="p-2">{{pokemon.height}}</span></mat-list-item>
               <mat-list-item><span class="font-weight-bold">Weight:</span><span class="p-2">{{pokemon.weight}}</span></mat-list-item>
