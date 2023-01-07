@@ -16,8 +16,8 @@
               <mat-list-item><span>Abilities: </span><span *ngFor= "let ability of pokemon.abilities" class="p-2">{{ability.ability.name}}</span></mat-list-item>
           </mat-list>
       </div>
-      <div>
-          
-      </div>
+        <div class="chart-container">
+          <canvas  id="MyChart" >{{ chart }}</canvas>
+        </div>
   </mat-card-content>
 </mat-card>
