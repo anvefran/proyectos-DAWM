@@ -11,6 +11,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule} from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AllPokemonsComponent } from './all-pokemons/all-pokemons.component';
@@ -35,6 +36,7 @@ import { RandomComponent } from './random/random.component';
     MatCardModule,
     MatGridListModule,
     MatDividerModule,
+    MatListModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),

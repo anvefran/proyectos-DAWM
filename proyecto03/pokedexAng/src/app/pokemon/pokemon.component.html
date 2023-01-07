@@ -1,1 +1,23 @@
-<p>pokemon works!</p>
+<mat-card class="example-card">
+    <mat-card-header class="justify-content-center pb-2">
+      <mat-card-title>Meet your Pokemon!</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content class="py-3 text-center">
+        <div>
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" alt="{{pokemon.name}}" class="imagen img-thumbnail text-center">
+        </div> 
+        <div>
+            <mat-list>
+                <mat-list-item><span class="font-weight-bold">Base experience:</span><span class="p-2">{{pokemon.base_experience}}</span></mat-list-item>
+                <mat-list-item><span class="font-weight-bold">Height:</span><span class="p-2">{{pokemon.height}}</span></mat-list-item>
+                <mat-list-item><span class="font-weight-bold">Weight:</span><span class="p-2">{{pokemon.weight}}</span></mat-list-item>
+                <mat-list-item><span>Types: </span><button mat-button routerLink="/random" *ngFor= "let tipo of pokemon.types" class="{{tipo.type.name}} p-2">{{tipo.type.name}}</button></mat-list-item>
+                <mat-list-item><span>Abilities: </span><span *ngFor= "let ability of pokemon.abilities" class="p-2">{{ability.ability.name}}</span></mat-list-item>
+            </mat-list>
+        </div>
+        <div>
+            
+        </div>
+    </mat-card-content>
+  </mat-card>

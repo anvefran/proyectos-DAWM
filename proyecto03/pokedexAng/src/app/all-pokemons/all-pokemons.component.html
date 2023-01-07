@@ -5,7 +5,7 @@
     <mat-divider></mat-divider>
     <mat-card-content class="py-3">
         <div class="imagenes text-center">
-          <img routerLink="/pokemon" *ngFor="let pokemon of pokemons" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemons.indexOf(pokemon)+1}}.png" alt="{{pokemon.name}}" class="imagen img-thumbnail {{pokemon.name}}" data-toggle="tooltip" data-placement="bottom" title="{{pokemon.name}}" role="button">
+          <img routerLink="/pokemon/{{pokemon.name}}" *ngFor="let pokemon of pokemons" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemons.indexOf(pokemon)+1}}.png" alt="{{pokemon.name}}" class="imagen img-thumbnail {{pokemon.name}}" data-toggle="tooltip" data-placement="bottom" title="{{pokemon.name}}" role="button">
         </div> 
     </mat-card-content>
     <mat-card-actions>
