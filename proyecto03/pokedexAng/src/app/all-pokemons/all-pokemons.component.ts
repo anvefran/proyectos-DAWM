@@ -9,8 +9,13 @@ import { AllPokes, NameAndUrl} from 'src/app/interfaz/getPokemons';
 })
 export class AllPokemonsComponent {
   pokemons: NameAndUrl[]=[];
-  constructor(private recursosService: RecursosService) {
-    recursosService.getAllPokemons().subscribe(respuesta => {
+  constructor(private recursosService: RecursosService) {}
+  ngOnInit(){
+   this.recursosService.getAllPokemons().subscribe(respuesta => {
+      let allPokemons = localStorage.getItem("allPokemons");
+      if(!allPokemons) {
+        localStorage.setItem("allPokemons", JSON.stringify(respuesta));
+      }
       let response = respuesta as AllPokes;
       this.pokemons = response.results as Array<NameAndUrl>
     })

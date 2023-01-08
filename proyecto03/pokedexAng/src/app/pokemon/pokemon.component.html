@@ -3,10 +3,10 @@
     <mat-card-title>Meet your Pokemon!</mat-card-title>
   </mat-card-header>
   <mat-divider></mat-divider>
-  <mat-card-content class="py-3 text-center">
-      <div>
-        <img *ngIf="pokemon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" alt="{{pokemon.name}}" class="imagen img-thumbnail text-center">
-      </div> 
+  <div class="text-center py-3">
+    <img mat-card-image *ngIf="pokemon" src="https://raw.githubusercontent.com/sashafirsov/pokeapi-sprites/6c11303b4416261519c89ab259e9723c2622d128/sprites/pokemon/other/dream-world/{{pokemon.id}}.svg" alt="{{pokemon.name}}" class="imagen img-thumbnail text-center">
+  </div> 
+  <mat-card-content class="text-center">
       <div>
           <mat-list *ngIf="pokemon">
               <mat-list-item><span class="font-weight-bold">Base experience:</span><span class="p-2">{{pokemon.base_experience}}</span></mat-list-item>
