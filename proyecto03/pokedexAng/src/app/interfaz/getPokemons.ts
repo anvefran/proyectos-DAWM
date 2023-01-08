@@ -35,6 +35,5 @@ interface AllPokes{
 interface NameAndUrl{
     name: string;
     url: string;
-    id: number;
 }
 export{AllPokes, NameAndUrl}

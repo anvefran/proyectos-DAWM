@@ -1,13 +1,14 @@
 <mat-card class="example-card">
     <mat-card-header class="justify-content-center pb-2">
-      <mat-card-title>Meet your Pokemon!</mat-card-title>
+      <mat-card-title>Random Pokemon Generator</mat-card-title>
     </mat-card-header>
     <mat-divider></mat-divider>
     <mat-card-content class="py-3 text-center">
-        <div>
-            <mat-list >
-                <mat-list-item><span class="p-2"></span></mat-list-item>
-            </mat-list>
-        </div>
+        <h2>You got {{name}}!</h2>
+        <img mat-card-xl-image routerLink="/pokemon/{{name}}"*ngIf="name && id" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{id}}.png" alt="{{name}}" class="img-thumbnail {{name}}" data-toggle="tooltip" data-placement="bottom" title="{{name}}" role="button">
+        <mat-list *ngIf="name && id">
+          <mat-list-item><a routerLink="/allPokemons"><span>VIEW MY TYPE SIBLINGS!</span></a></mat-list-item>
+          <mat-list-item><a routerLink="/pokemon/{{name}}"><span>GET TO KNOW ME!</span></a></mat-list-item>
+        </mat-list>
     </mat-card-content>
   </mat-card>
