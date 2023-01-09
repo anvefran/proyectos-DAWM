@@ -15,7 +15,7 @@ export class FilterComponent{
   pokemons: any[]=[];
   ids: number[] = [];
   types: string[] = ["all","normal", "fighting","flying","poison","ground","rock","bug",
-  "ghost","steel","fire","water","grass","electric","psychic","ice","dragon","dark","fairy","shadow"];
+  "ghost","steel","fire","water","grass","electric","psychic","ice","dragon","dark","fairy"];
 
   constructor(private router: Router,private route: ActivatedRoute, private recursosService: RecursosService) {
     

@@ -4,8 +4,8 @@
     </mat-card-header>
     <mat-divider></mat-divider>
     <mat-card-content class="py-3">
-      <div class="example-button-row">
-        <button (click)="getPokemons(tipo)" mat-stroked-button routerLink="/types/{{tipo}}" *ngFor="let tipo of types" class="{{tipo}} btn">{{tipo}}</button>
+      <div class="example-button-row text-center">
+        <button (click)="getPokemons(tipo)" mat-stroked-button routerLink="/types/{{tipo}}" *ngFor="let tipo of types" class="{{tipo}} m-1 btn">{{tipo}}</button>
       </div>
       <div class="imagenes text-center" *ngIf="type=='all'">
         <img routerLink="/pokemon/{{pokemon.name}}" *ngFor="let pokemon of pokemons" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemons.indexOf(pokemon)+1}}.png" alt="{{pokemon.name}}" class="imagen img-thumbnail {{pokemon.name}}" data-toggle="tooltip" data-placement="bottom" title="{{pokemon.name}}" role="button">
