@@ -17,13 +17,15 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { AllPokemonsComponent } from './all-pokemons/all-pokemons.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { RandomComponent } from './random/random.component';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AllPokemonsComponent,
     PokemonComponent,
-    RandomComponent
+    RandomComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RecursosService } from 'src/app/servicios/recursos.service';
 import { AllPokes, NameAndUrl} from 'src/app/interfaz/getPokemons';
+import { PokemonI, Abilities, Stats, Types} from 'src/app/interfaz/pokemon-i';
 
 @Component({
   selector: 'app-random',
@@ -10,7 +11,8 @@ import { AllPokes, NameAndUrl} from 'src/app/interfaz/getPokemons';
 export class RandomComponent {
   name!: string;
   id!: number;
-  constructor() {
+  type!: string;
+  constructor(private recursosService: RecursosService) {
     let allPoks = JSON.parse(localStorage.getItem("allPokemons")!);
     if(allPoks) {
       let response = allPoks as AllPokes;
@@ -21,6 +23,9 @@ export class RandomComponent {
     }
   }
   ngOnInit(){
-
+    this.recursosService.getPokemonInfo(this.name).subscribe(respuesta => {
+      let pokemon = respuesta as PokemonI;
+      this.type = pokemon.types[0].type.name
+    });
   }
 }

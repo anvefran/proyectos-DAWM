@@ -5,9 +5,9 @@
     <mat-divider></mat-divider>
     <mat-card-content class="py-3 text-center">
         <h2>You got {{name}}!</h2>
-        <img mat-card-xl-image routerLink="/pokemon/{{name}}"*ngIf="name && id" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{id}}.png" alt="{{name}}" class="img-thumbnail {{name}}" data-toggle="tooltip" data-placement="bottom" title="{{name}}" role="button">
-        <mat-list *ngIf="name && id">
-          <mat-list-item><a routerLink="/allPokemons"><span>VIEW MY TYPE SIBLINGS!</span></a></mat-list-item>
+        <img mat-card-xl-image routerLink="/pokemon/{{name}}"*ngIf="name && id" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/{{id}}.png" alt="{{name}}" class="img-thumbnail {{name}}" data-toggle="tooltip" data-placement="bottom" title="{{name}}" role="button">
+        <mat-list *ngIf="name && id && type">
+          <mat-list-item><a routerLink="/types/{{type}}"><span>VIEW MY TYPE SIBLINGS!</span></a></mat-list-item>
           <mat-list-item><a routerLink="/pokemon/{{name}}"><span>GET TO KNOW ME!</span></a></mat-list-item>
         </mat-list>
     </mat-card-content>

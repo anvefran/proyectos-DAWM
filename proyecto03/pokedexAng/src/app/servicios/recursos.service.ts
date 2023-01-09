@@ -13,4 +13,7 @@ export class RecursosService {
   getPokemonInfo(nombre: string){
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${nombre}/`);
   }
+  getPokemonsbyType(tipo: string){
+    return this.http.get(`https://pokeapi.co/api/v2/type/${tipo}/`);
+  }
 }
