@@ -7,10 +7,53 @@
       <div class="example-button-row text-center">
         <button (click)="getPokemons(tipo)" mat-stroked-button routerLink="/types/{{tipo}}" *ngFor="let tipo of types" class="{{tipo}} m-1 btn">{{tipo}}</button>
       </div>
-      <div class="imagenes text-center" *ngIf="type=='all'">
+      <mat-divider></mat-divider>
+      <mat-card-title *ngIf="type!='all'" class="text-center pb-2 py-3">{{type}} (Type)</mat-card-title>
+      <div *ngIf="type!='all'" class="grid-col span-md-6 span-lg-12 text-center">
+        <h2><i>Attack</i></h2> 
+        <div *ngIf="damage.double_damage_to.length!=0">
+          <span><i>{{type}}</i> pokemons are super effective against:</span>
+          <div class="grid-row p-3">
+            <span *ngFor="let i of damage.double_damage_to" class="container p-2 {{i.name}}">{{i.name}}</span>
+          </div>
+        </div>
+        <div *ngIf="damage.half_damage_to.length!=0">
+          <span><i>{{type}}</i> pokemons are not very effective against:</span>
+          <div class="grid-row p-3">
+            <span *ngFor="let i of damage.half_damage_to" class="container p-2 {{i.name}}">{{i.name}}</span>
+          </div>
+        </div>
+        <div *ngIf="damage.no_damage_to.length!=0">
+          <span><i>{{type}}</i> pokemons do not provoke damage to:</span>
+          <div class="grid-row p-3">
+            <span *ngFor="let i of damage.no_damage_to" class="container p-2 {{i.name}}">{{i.name}}</span>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <h2><i>Defense</i></h2> 
+        <div *ngIf="damage.double_damage_from.length!=0">
+          <span><i>{{type}}</i> pokemons get double damage from:</span>
+          <div class="grid-row p-3">
+            <span *ngFor="let i of damage.double_damage_from" class="container p-2 {{i.name}}">{{i.name}}</span>
+          </div>
+        </div>
+        <div *ngIf="damage.half_damage_from.length!=0">
+          <span><i>{{type}}</i> pokemons get half damage from:</span>
+          <div class="grid-row p-3">
+            <span *ngFor="let i of damage.half_damage_from" class="container p-2 {{i.name}}">{{i.name}}</span>
+          </div>
+        </div>
+        <div *ngIf="damage.no_damage_from.length!=0">
+          <span><i>{{type}}</i> pokemons get no damage from:</span>
+          <div class="grid-row p-3">
+            <span *ngFor="let i of damage.no_damage_from" class="container p-2 {{i.name}}">{{i.name}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="imagenes text-center py-3" *ngIf="type=='all'">
         <img routerLink="/pokemon/{{pokemon.name}}" *ngFor="let pokemon of pokemons" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemons.indexOf(pokemon)+1}}.png" alt="{{pokemon.name}}" class="imagen img-thumbnail {{pokemon.name}}" data-toggle="tooltip" data-placement="bottom" title="{{pokemon.name}}" role="button">
       </div>
-      <div class="imagenes text-center" *ngIf="type!='all'">
+      <div class="imagenes text-center py-3" *ngIf="type!='all'">
         <img routerLink="/pokemon/{{pokemon.name}}" *ngFor="let pokemon of pokemons" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" alt="{{pokemon.id}}" class="imagen img-thumbnail"  role="button">
       </div> 
     </mat-card-content>

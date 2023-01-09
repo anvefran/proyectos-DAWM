@@ -14,14 +14,14 @@ export class FilterComponent{
   type!: string;
   pokemons: any[]=[];
   ids: number[] = [];
+  damage!: Damage;
   types: string[] = ["all","normal", "fighting","flying","poison","ground","rock","bug",
   "ghost","steel","fire","water","grass","electric","psychic","ice","dragon","dark","fairy"];
 
-  constructor(private router: Router,private route: ActivatedRoute, private recursosService: RecursosService) {
-    
-  }
+  constructor(private router: Router,private route: ActivatedRoute, private recursosService: RecursosService) {}
   getPokemons(tipo: string){
     this.pokemons = [];
+    this.type = tipo;
     let url = `/types/${tipo}`;
     if(tipo == "all"){
       let allPoks = JSON.parse(localStorage.getItem("allPokemons")!);
@@ -43,6 +43,7 @@ export class FilterComponent{
             this.pokemons.push(map);
           }
         }
+        this.damage =  res.damage_relations;
       });
     }
   }
