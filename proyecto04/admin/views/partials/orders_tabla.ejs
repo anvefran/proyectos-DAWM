@@ -19,6 +19,7 @@
                         <th>Customer Number</th>
                         <th>Name</th>
                         <th>Price Each</th>
+                        <th>Quantity</th>
                         <th>Product Line</th>
                         <th>Status</th>
                     </tr>
@@ -30,6 +31,7 @@
                         <td><%= order.customerNumber %></td>
                         <td><%= order.productName %></td>
                         <td><%= order.priceEach %></td>
+                        <td><%= order.quantityOrdered %></td>
                         <td><%= order.productLine %></td>
                         <td><%= order.status %></td>
                     </tr>
@@ -39,7 +41,7 @@
             <hr>
             <div class="alert alert-primary d-flex flex-row justify-content-around align-items-center" role="alert">
                 <h4>Total: </h4>
-                <h5 class="text-center"><%= total %></h5>
+                <h5 class="text-center">$<%= total.toFixed(2) %></h5>
             </div>
             <div class="clearfix">
                 <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
