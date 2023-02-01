@@ -42,8 +42,16 @@ router.get('/customers/orders/:id',async function(req, res, next) {
     }
   }
   const response = await axios.get(URL, config);
-  console.log("entre a order de admin");
-  res.render('orders', {title: 'Orders', orders: response.data});
+  
+  const config2 = {
+    proxy: {
+      host: 'localhost',
+      port: 3081
+    }
+  }
+  let url = 'http://localhost:3081/getTotal'
+  const response2 = await axios.post(url, response.data,config2)
+  res.render('orders', {title: 'Orders', orders: response.data, total: response2.data.total});
 });
 
 module.exports = router;
