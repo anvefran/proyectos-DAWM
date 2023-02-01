@@ -8,9 +8,9 @@ router.get('/', function(req, res, next) {
 
 router.post('/getTotal', function(req, res, next) {
   let arreglo = req.body;
+  let total=0;
   for (let order of arreglo){
-    total = order.priceEach * order.quantityOrdered;
-
+    total += order.priceEach * order.quantityOrdered;
   }
   res.json({"total": total})
 });
